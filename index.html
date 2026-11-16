@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SP Informative</title>
+<meta name="description" id="mdesc" content="SP Informative: उपयुक्त माहिती, सोप्या भाषेत. Hisab Mitra ॲप आणि मराठी व हिंदी चॅनेल.">
+<meta name="theme-color" content="#F7F1E3">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SP Informative">
+<meta property="og:url" content="https://spinformative.in/">
+<meta property="og:title" content="SP Informative">
+<meta property="og:description" content="SP Informative: उपयुक्त माहिती, सोप्या भाषेत. Hisab Mitra ॲप आणि मराठी व हिंदी चॅनेल.">
+<meta property="og:image" content="https://spinformative.in/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://spinformative.in/">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+<link rel="preload" href="assets/Poppins-SemiBold.woff" as="font" type="font/woff" crossorigin>
+<style>
+@font-face{font-family:"Poppins";src:url("assets/Poppins-Medium.woff") format("woff");font-weight:400 500;font-display:swap}
+@font-face{font-family:"Poppins";src:url("assets/Poppins-SemiBold.woff") format("woff");font-weight:600 700;font-display:swap}
+@font-face{font-family:"Noto Sans Devanagari";src:url("assets/NotoSansDevanagari-Regular.woff") format("woff");font-weight:400 500;font-display:swap}
+@font-face{font-family:"Noto Sans Devanagari";src:url("assets/NotoSansDevanagari-SemiBold.woff") format("woff");font-weight:600 700;font-display:swap}
+/* body text: Poppins for Latin only, so Devanagari falls through to Noto */
+@font-face{font-family:"Poppins Latin";src:url("assets/Poppins-Medium.woff") format("woff");font-weight:400 500;font-display:swap;unicode-range:U+0000-00FF,U+2010-2026,U+20B9}
+@font-face{font-family:"Poppins Latin";src:url("assets/Poppins-SemiBold.woff") format("woff");font-weight:600 700;font-display:swap;unicode-range:U+0000-00FF,U+2010-2026,U+20B9}
+
+/* Layout idea: cream "ledger paper" pages with one deep-navy app chapter; mascots live inside arches. */
+:root{
+  color-scheme:light;
+  --paper:#F7F1E3; --paper-2:#EFE6D0;
+  --ink:#14213D; --ink-2:rgba(20,33,61,.72); --night:#0B1429;
+  --gold:#E9B949; --gold-deep:#805E00; --gold-edge:#A87B0C;
+  --due:#D0453A; --adv:#1F9460;
+  --f-display:"Poppins","Noto Sans Devanagari",system-ui,sans-serif;
+  --f-body:"Poppins Latin","Noto Sans Devanagari",system-ui,sans-serif;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --gut:clamp(18px,5vw,56px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.6 var(--f-body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3,p{margin:0}
+h1,h2{font-family:var(--f-display);font-weight:600;text-wrap:balance}
+.in-w{max-width:1180px;margin:0 auto;padding:0 var(--gut)}
+:focus-visible{outline:2.5px solid var(--gold-edge);outline-offset:3px;border-radius:6px}
+.grid-bg{background-image:linear-gradient(rgba(20,33,61,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(20,33,61,.05) 1px,transparent 1px);background-size:44px 44px}
+
+/* top bar */
+.top{position:sticky;top:0;z-index:20;background:rgba(247,241,227,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(20,33,61,.1);padding-top:env(safe-area-inset-top)}
+.top .in-w{display:flex;align-items:center;justify-content:space-between;gap:12px;height:64px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand img{width:42px;height:42px;border-radius:50%}
+.brand b{font:600 13px/1.15 var(--f-display);letter-spacing:.12em}
+.brand b i{display:block;font:500 9.5px/1.4 var(--f-display);letter-spacing:.2em;color:var(--gold-deep);font-style:normal}
+.lang{display:flex;padding:3px;border-radius:99px;background:rgba(20,33,61,.07)}
+.lang button{all:unset;cursor:pointer;padding:7px 12px;border-radius:99px;font:600 13.5px/1 var(--f-body);color:var(--ink-2);transition:background .3s,color .3s}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.lang button:focus-visible{outline:2.5px solid var(--gold-edge);outline-offset:2px}
+
+/* hero */
+.hero{padding:clamp(34px,7vw,84px) 0 clamp(40px,7vw,90px)}
+.hero .in-w{display:grid;gap:38px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font:600 11px/1 var(--f-display);letter-spacing:.22em;text-transform:uppercase;color:var(--gold-deep)}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--gold)}
+h1{margin-top:18px;font-size:clamp(38px,10.4vw,78px);line-height:1.22;letter-spacing:-.012em}
+html[lang="en"] h1{font-size:clamp(36px,9.6vw,60px)}
+h1 mark{color:inherit;padding:0 .12em;margin:0 -.12em;background:linear-gradient(var(--gold),var(--gold)) no-repeat 0 82%/100% .36em;animation:mark 1s .35s var(--ease) backwards}
+@keyframes mark{from{background-size:0 .36em}}
+.sub{margin-top:18px;max-width:30ch;font-size:clamp(18px,4.7vw,22px);line-height:1.5;color:var(--ink-2)}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:54px;padding:12px 22px;border-radius:16px;text-decoration:none;font:600 16px/1.2 var(--f-body);transition:transform .35s var(--ease),box-shadow .35s,background .3s}
+.btn svg{width:20px;height:20px;flex:none}
+.btn.ink{background:var(--ink);color:var(--paper);box-shadow:0 14px 28px -14px rgba(11,20,41,.75)}
+.btn.line{border:1.5px solid rgba(20,33,61,.3)}
+.btn.gold{background:var(--gold);color:var(--ink);box-shadow:0 14px 30px -12px rgba(233,185,73,.6)}
+.btn:hover{transform:translateY(-2px)}
+.btn.line:hover{background:rgba(20,33,61,.06)}
+
+.stage{position:relative;width:min(100%,460px);margin:0 auto;aspect-ratio:1/1.22}
+.arch{position:absolute;inset:0;border-radius:999px 999px 30px 30px;overflow:hidden;background:radial-gradient(120% 80% at 50% 108%,#2B4380 0%,var(--ink) 55%,var(--night) 100%);box-shadow:0 40px 60px -40px rgba(11,20,41,.85)}
+.arch::before{content:"";position:absolute;left:50%;top:9%;width:74%;aspect-ratio:1;transform:translateX(-50%);border-radius:50%;border:1.5px solid rgba(233,185,73,.55)}
+.arch::after{content:"";position:absolute;left:0;right:0;bottom:0;height:22%;background:linear-gradient(transparent,rgba(11,20,41,.9))}
+.arch img{position:absolute;bottom:0;width:auto;max-width:none;filter:drop-shadow(0 16px 20px rgba(0,0,0,.4))}
+.arch .m1{left:9%;height:90%;animation:bob 7s ease-in-out infinite alternate}
+.arch .m2{right:9%;height:90%;animation:bob 8s -3s ease-in-out infinite alternate}
+.stage .rim{position:absolute;inset:-10px;border-radius:999px 999px 38px 38px;border:1.5px solid var(--gold);opacity:.7;pointer-events:none}
+.float{position:absolute;z-index:3;display:flex;align-items:center;gap:8px;padding:9px 14px;border-radius:14px;background:#fff;box-shadow:0 14px 28px -14px rgba(11,20,41,.5);font:600 13.5px/1.2 var(--f-body);animation:bob 6s ease-in-out infinite alternate}
+.float i{width:9px;height:9px;border-radius:50%;background:var(--gold)}
+.float.f1{left:-8px;top:3%}
+.float.f2{right:-8px;bottom:5%;animation-delay:-3s}
+.float.f2 i{background:var(--adv)}
+@keyframes bob{from{transform:translateY(0)}to{transform:translateY(-9px)}}
+
+/* ticker */
+.ticker{background:var(--ink);color:var(--paper);overflow:hidden;border-block:2px solid var(--gold)}
+.ticker div{display:flex;gap:34px;width:max-content;padding:13px 0;animation:slide 38s linear infinite;font:600 14.5px/1 var(--f-display);letter-spacing:.06em;white-space:nowrap}
+.ticker span::after{content:"✦";margin-left:34px;color:var(--gold)}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* app chapter */
+.app{background:radial-gradient(900px 600px at 85% 20%,#22386F 0%,transparent 60%),linear-gradient(180deg,var(--ink),var(--night));color:var(--paper);padding:clamp(56px,9vw,110px) 0}
+.app .in-w{display:grid;gap:44px;align-items:center}
+.kicker{font:600 11px/1 var(--f-display);letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+h2{margin-top:14px;font-size:clamp(32px,8vw,56px);line-height:1.2;letter-spacing:-.01em}
+.app .tag{margin-top:12px;font-size:clamp(18px,4.6vw,22px);color:rgba(247,241,227,.78)}
+.feats{list-style:none;margin:26px 0 0;padding:0;display:grid;gap:12px}
+.feats li{display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:16px;background:rgba(247,241,227,.06);border:1px solid rgba(247,241,227,.12);font-weight:500}
+.feats svg{width:22px;height:22px;flex:none;color:var(--gold)}
+.app .btn{margin-top:26px}
+.phone-w{display:grid;justify-items:center;gap:14px}
+.phone{position:relative;width:min(100%,292px);border-radius:40px;padding:10px;background:#05080F;box-shadow:0 0 0 1.5px rgba(233,185,73,.55),0 50px 70px -40px #000,0 0 90px -20px rgba(233,185,73,.35)}
+.scr{border-radius:31px;overflow:hidden;background:var(--paper);color:var(--ink);font-family:var(--f-display)}
+.scr .hd{display:flex;align-items:center;gap:9px;padding:26px 14px 12px;background:var(--ink);color:var(--paper);font:600 14.5px/1 var(--f-display)}
+.scr .hd img{width:26px;height:26px;border-radius:50%}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:12px}
+.tile{padding:10px 12px;border-radius:14px;background:#fff;border:1px solid rgba(20,33,61,.1)}
+.tile small{display:block;font:500 10px/1.3 var(--f-display);color:var(--ink-2)}
+.tile b{font:600 17px/1.4 var(--f-display);font-variant-numeric:tabular-nums}
+.due{color:var(--due)}.adv{color:var(--adv)}.set{color:#7C8494}
+.rows{display:grid;gap:7px;padding:0 12px 12px}
+.rw{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:14px;background:#fff;border:1px solid rgba(20,33,61,.08)}
+.rw .av{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:var(--paper-2);font:600 13px/1 var(--f-display)}
+.rw .nm{flex:1;font:500 12.5px/1.25 var(--f-display)}
+.rw .nm small{display:block;font-size:9.5px;color:var(--ink-2)}
+.rw .am{text-align:right;font:600 12.5px/1.25 var(--f-display);font-variant-numeric:tabular-nums}
+.rw .am small{display:block;font:500 9.5px/1.2 var(--f-display)}
+.pbtn{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 12px 16px}
+.pbtn span{padding:11px 0;border-radius:13px;text-align:center;color:#fff;font:600 12.5px/1 var(--f-display)}
+.cap{font-size:13px;color:rgba(247,241,227,.6)}
+.phone-w{position:relative}
+.hold{display:none;position:absolute;bottom:34px;height:400px;width:auto;max-width:none;filter:drop-shadow(0 18px 22px rgba(0,0,0,.5));pointer-events:none}
+.hold.l{left:-52px}.hold.r{right:-52px}
+
+/* channels */
+.sec{padding:clamp(56px,9vw,110px) 0}
+.sec .lead{margin-top:12px;max-width:40ch;color:var(--ink-2);font-size:18px}
+.sec .kicker{color:var(--gold-deep)}
+.ch{display:grid;gap:18px;margin-top:32px}
+.cc{position:relative;overflow:hidden;min-height:330px;border-radius:30px;color:var(--paper);display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);background:linear-gradient(150deg,#3D5AA6 0%,#22386F 45%,var(--ink) 100%);box-shadow:0 34px 50px -36px rgba(11,20,41,.9)}
+.cc.mr{grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);background:linear-gradient(150deg,#F3CB66,var(--gold) 60%,#D9A22B);color:var(--ink)}
+.cc .txt{display:flex;flex-direction:column;padding:24px 8px 24px 24px;position:relative;z-index:2}
+.cc.mr .txt{order:2;padding:24px 24px 24px 8px}
+.cc .lg{width:min(100%,250px);height:auto}
+.cc h3{margin-top:14px;font:600 clamp(26px,7vw,34px)/1.2 var(--f-display)}
+.cc p{margin-top:8px;font-size:15.5px;line-height:1.5;opacity:.9}
+.soc{display:flex;flex-wrap:nowrap;gap:9px;margin-top:auto;padding-top:20px;width:max-content}
+.soc a{width:46px;height:46px;flex:none;border-radius:50%;display:grid;place-items:center;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);background:rgba(247,241,227,.14);border:1px solid rgba(247,241,227,.28);transition:transform .3s var(--ease),background .3s}
+.cc.mr .soc a{background:rgba(20,33,61,.1);border-color:rgba(20,33,61,.3)}
+.soc a:hover{transform:translateY(-3px);background:var(--paper);color:var(--ink)}
+.soc svg{width:20px;height:20px;fill:currentColor}
+.cc .fig{position:relative;min-width:0}
+.feats span,.sec .lead,.sub,.app .tag{text-wrap:balance}
+@media (max-width:420px){.soc{gap:7px}.soc a{width:42px;height:42px}}
+.cc .fig::before{content:"";position:absolute;left:50%;top:9%;width:118%;aspect-ratio:1;transform:translateX(-50%);border-radius:50%;border:1.5px solid currentColor;opacity:.3}
+.cc .who{position:absolute;left:50%;top:26px;height:440px;width:auto;max-width:none;transform:translateX(-50%);filter:drop-shadow(0 14px 18px rgba(0,0,0,.35))}
+
+/* faces */
+.faces{display:grid;gap:18px;margin-top:32px}
+.fc{display:grid;grid-template-columns:108px minmax(0,1fr);gap:4px 18px;align-items:center;padding:20px;border-radius:26px;background:#FFFDF7;border:1px solid rgba(20,33,61,.1);box-shadow:0 26px 40px -34px rgba(11,20,41,.6)}
+.fc .ar{position:relative;aspect-ratio:3/4;border-radius:999px 999px 16px 16px;overflow:hidden;box-shadow:0 0 0 1.5px var(--gold)}
+.fc .ar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 0}
+.fc.a .ar{background:linear-gradient(180deg,#F3CB66,var(--gold))}
+.fc.b .ar{background:linear-gradient(180deg,#2B4380,var(--night))}
+.fc.c .ar{background:linear-gradient(180deg,#E7DCC2,#D8C9A6)}
+.fc .hd b{display:block;font:600 24px/1.2 var(--f-display)}
+.fc .hd span{display:block;margin-top:4px;font:600 13.5px/1.4 var(--f-body);color:var(--gold-deep)}
+.fc .hd q{display:block;margin-top:10px;font:600 16.5px/1.4 var(--f-body);quotes:none;text-wrap:balance}
+.fc .bio{grid-column:1/-1;margin-top:14px;font-size:16px;line-height:1.6;color:var(--ink-2)}
+.fc .tags{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 0;padding:0;list-style:none}
+.fc .tags li{padding:5px 12px;border-radius:99px;background:rgba(233,185,73,.22);font:600 13px/1.4 var(--f-body)}
+.ai{margin-top:28px;font-size:13.5px;color:var(--ink-2)}
+
+/* app extras */
+.app .intro{margin-top:16px;max-width:46ch;color:rgba(247,241,227,.8)}
+.app .more{grid-column:1/-1;display:grid;gap:16px}
+.priv{display:flex;gap:14px;align-items:center;padding:18px 20px;border-radius:18px;background:var(--gold);color:var(--ink);font:600 16.5px/1.45 var(--f-body)}
+.priv svg{width:26px;height:26px;flex:none}
+.why{padding:22px 22px 22px 24px;border-radius:18px;border-left:4px solid var(--gold);background:rgba(247,241,227,.06)}
+.why h3{font:600 20px/1.3 var(--f-display);color:var(--paper)}
+.why p{margin-top:10px;color:rgba(247,241,227,.8);max-width:70ch}
+
+/* footer */
+footer{background:var(--night);color:rgba(247,241,227,.75);padding:44px 0 calc(40px + env(safe-area-inset-bottom));font-size:15px}
+footer .in-w{display:grid;gap:22px}
+footer .brand b{color:var(--paper)}
+footer .brand b i{color:var(--gold)}
+footer a.mail{color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(233,185,73,.5);overflow-wrap:anywhere}
+footer small{font-size:13px;color:rgba(247,241,227,.5)}
+
+
+/* menu */
+.top .right{display:flex;align-items:center;gap:8px}
+.nav{display:none;gap:30px}
+.nav a,.mnav a{text-decoration:none;font:600 15.5px/1 var(--f-body)}
+.nav a{padding:8px 0;border-bottom:2px solid transparent;transition:border-color .3s}
+.nav a:hover{border-color:var(--gold)}
+.burger{all:unset;cursor:pointer;width:42px;height:42px;border-radius:12px;display:grid;place-content:center;gap:5px;background:rgba(20,33,61,.07)}
+.burger span{display:block;width:20px;height:2px;border-radius:2px;background:var(--ink);transition:transform .3s,opacity .3s}
+.top.open .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.top.open .burger span:nth-child(2){opacity:0}
+.top.open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.burger:focus-visible{outline:2.5px solid var(--gold-edge);outline-offset:2px}
+.mnav{display:none;padding:6px var(--gut) 14px;border-top:1px solid rgba(20,33,61,.1)}
+.top.open .mnav{display:grid}
+.mnav a{padding:15px 4px;border-bottom:1px solid rgba(20,33,61,.1);font-size:17px}
+.mnav a:last-child{border-bottom:0}
+#app,#channels,#team{scroll-margin-top:72px}
+@media (max-width:519px){.top .brand b{display:none}}
+@media (min-width:900px){.nav{display:flex}.burger,.mnav,.top.open .mnav{display:none}}
+/* app screens */
+.shots{position:relative;aspect-ratio:648/1440;background:var(--ink)}
+.shots img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .8s var(--ease)}
+.shots img.on{opacity:1}
+.dots{display:flex;gap:4px}
+.dots button{all:unset;cursor:pointer;width:26px;height:26px;display:grid;place-items:center}
+.dots button::before{content:"";width:8px;height:8px;border-radius:50%;background:rgba(247,241,227,.3);transition:background .3s,transform .3s}
+.dots button[aria-pressed="true"]::before{background:var(--gold);transform:scale(1.3)}
+.dots button:focus-visible{outline:2px solid var(--gold);border-radius:50%}
+/* feature chips on phones */
+@media (max-width:899px){
+  .feats{grid-template-columns:1fr 1fr;gap:8px}
+  .feats li{align-items:flex-start;gap:8px;padding:11px 10px;border-radius:14px;font-size:13.5px;line-height:1.4}
+  .feats svg{width:16px;height:16px;margin-top:2px}
+  .feats span{text-wrap:wrap}
+}
+/* Sanvi beside "why" */
+.why{display:grid;gap:14px}
+.why .pt{position:relative;height:190px;overflow:hidden;-webkit-mask-image:linear-gradient(#000 72%,transparent);mask-image:linear-gradient(#000 72%,transparent)}
+.why .pt img{position:absolute;right:4%;top:0;height:440px;width:auto;max-width:none}
+@media (min-width:900px){
+  .why{grid-template-columns:minmax(0,1fr) 230px;gap:10px;align-items:center}
+  .why .pt{order:2;height:100%;min-height:210px}
+  .why .pt img{right:0;height:470px}
+}
+/* footer */
+footer .in-w{display:grid;gap:28px}
+footer a{-webkit-tap-highlight-color:transparent}
+footer a:focus{outline:none}
+footer a:focus-visible{outline:2.5px solid var(--gold);outline-offset:3px;border-radius:6px}
+footer a.ul{color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(233,185,73,.5);overflow-wrap:anywhere}
+footer a.ul:hover{border-bottom-color:var(--gold)}
+.f-grid{display:grid;gap:30px}
+.f-brand{display:grid;gap:14px;justify-items:start}
+.f-app{font:600 14px/1.4 var(--f-body);color:rgba(247,241,227,.85);margin-top:6px}
+.f-brand .btn{margin-top:-4px}
+.f-grid h4{margin:0 0 14px;font:600 12px/1.3 var(--f-display);letter-spacing:.14em;color:var(--gold)}
+footer .soc{margin:0;padding:0;width:max-content;flex-wrap:nowrap;gap:8px}
+footer .soc a{width:42px;height:42px}
+.f-links{list-style:none;margin:0;padding:0;display:grid;gap:12px;justify-items:start;font:600 15px/1.3 var(--f-body)}
+.f-bot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 28px;padding-top:22px;border-top:1px solid rgba(247,241,227,.14)}
+.f-bot small{font-size:13px;color:rgba(247,241,227,.75)}
+.f-bot .copy{color:var(--paper);opacity:.7}
+@media (min-width:900px){.f-grid{grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px}}
+
+/* reading sizes */
+.cc p{font-size:17px;line-height:1.7;opacity:1}
+.fc .bio{font-size:17px;line-height:1.7;color:rgba(20,33,61,.88)}
+.fc .hd q{font-size:17px}
+.fc .hd span{font-size:14.5px}
+.app .intro,.why p{font-size:17px;line-height:1.7}
+@media (min-width:900px){.feats li{font-size:17px;line-height:1.7}}
+html[lang="mr"] h1,html[lang="mr"] h2,html[lang="mr"] h3,html[lang="hi"] h1,html[lang="hi"] h2,html[lang="hi"] h3{letter-spacing:0}
+html[lang="mr"] body,html[lang="hi"] body{line-height:1.75}
+
+/* menu + channel-name underlines */
+.nav a{border-bottom:2px solid rgba(20,33,61,.18)}
+.nav a:hover,.nav a.cur{border-bottom-color:var(--gold)}
+.mnav a.cur{color:var(--gold-deep)}
+.cc h3::after{content:"";display:block;width:48px;height:3px;margin-top:8px;border-radius:3px;background:var(--gold)}
+.cc.mr h3::after{background:var(--ink)}
+
+@media (max-width:899px){.lang button{padding:11px 14px;line-height:18px}}
+.ticker div{padding-right:34px}
+
+/* reveal: only hides when JS is running and motion is allowed */
+.js .rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0s)}
+.js .rv.on{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .js .rv{opacity:1;transform:none;transition:none}
+  .arch img,.float,.ticker div,h1 mark{animation:none}
+  html{scroll-behavior:auto}
+}
+@media (min-width:1000px){.hold{display:block}}
+@media (min-width:900px){
+  .hero .in-w{grid-template-columns:1.1fr .9fr;gap:60px}
+  .app .in-w{grid-template-columns:1.05fr .95fr;gap:70px}
+  .ch{grid-template-columns:1fr 1fr;gap:24px}
+  .cc{min-height:400px}
+  .cc .who{height:520px;top:30px}
+  .cc .txt{padding:34px 10px 34px 34px}
+  .cc.mr .txt{padding:34px 34px 34px 10px}
+  .faces{grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;align-items:start}
+  .fc{grid-template-columns:1fr;padding:26px;gap:0}
+  .fc .ar{width:150px;margin-bottom:18px}
+  .app .more{grid-template-columns:1fr 1.4fr;align-items:stretch}
+  .feats{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M6 3.6c0-.9 1-1.500 1.800-1l13 7.900c.8.500.8 1.600 0 2.100l-13 7.900c-.8.500-1.800-.1-1.800-1V3.600z"/></symbol>
+  <symbol id="i-yt" viewBox="0 0 24 24"><path d="M21.6 7.2a2.500 2.500 0 0 0-1.800-1.800C18.200 5 12 5 12 5s-6.200 0-7.800.4a2.500 2.500 0 0 0-1.800 1.800C2 8.800 2 12 2 12s0 3.200.4 4.800a2.500 2.500 0 0 0 1.800 1.800C5.800 19 12 19 12 19s6.200 0 7.800-.4a2.500 2.500 0 0 0 1.800-1.800c.4-1.600.4-4.800.4-4.800s0-3.200-.4-4.800zM10 15V9l5.200 3L10 15z"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.500a4.500 4.500 0 1 1 0 9 4.500 4.500 0 0 1 0-9zm0 2a2.500 2.500 0 1 0 0 5 2.500 2.500 0 0 0 0-5zm5.300-3.800a1.100 1.100 0 1 1 0 2.200 1.100 1.100 0 0 1 0-2.200z"/></symbol>
+  <symbol id="i-fb" viewBox="0 0 24 24"><path d="M13.500 22v-8.200h2.800l.4-3.300h-3.200V8.400c0-.9.3-1.600 1.600-1.600h1.700V3.900c-.3 0-1.300-.1-2.500-.1-2.500 0-4.200 1.500-4.200 4.300v2.400H7.300v3.300h2.800V22h3.400z"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M17.800 3h3l-6.600 7.500L22 21h-6.100l-4.800-6.300L5.600 21h-3l7.100-8.100L2.200 3h6.300l4.300 5.700L17.800 3zm-1.100 16.200h1.700L7.400 4.700H5.600l11.100 14.500z"/></symbol>
+  <symbol id="i-ok" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.200" stroke-linecap="round" stroke-linejoin="round" d="M4.500 12.500l5 5L19.500 7"/></symbol>
+</svg>
+
+<header class="top" id="hdr">
+  <div class="in-w">
+    <a class="brand" href="#top" aria-label="SP Informative"><img src="assets/logo_hi.webp" width="42" height="42" alt=""><b>SP INFORMATIVE<i>NEWS · TECH · INFO</i></b></a>
+    <nav class="nav" aria-label="Main">
+      <a href="#app" data-i="nv1">ॲप</a><a href="#channels" data-i="nv2">चॅनेल</a><a href="#team" data-i="nv3">ओळख</a>
+    </nav>
+    <div class="right">
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-set="mr" aria-pressed="true">मराठी</button>
+        <button type="button" data-set="hi" aria-pressed="false">हिंदी</button>
+        <button type="button" data-set="en" aria-pressed="false">EN</button>
+      </div>
+      <button type="button" class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="mnav"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <nav class="mnav" id="mnav" aria-label="Menu">
+    <a href="#app" data-i="nv1">ॲप</a><a href="#channels" data-i="nv2">चॅनेल</a><a href="#team" data-i="nv3">ओळख</a>
+  </nav>
+</header>
+
+<main id="top">
+<section class="hero grid-bg">
+  <div class="in-w">
+    <div>
+      <span class="eyebrow">News · Tech · Useful Information</span>
+      <h1 data-i="h1">उपयुक्त माहिती,<br><mark>सोप्या भाषेत</mark></h1>
+      <p class="sub" data-i="sub">बातम्या, तंत्रज्ञान आणि रोजच्या कामाच्या गोष्टी.</p>
+      <div class="cta">
+        <a class="btn ink" href="https://play.google.com/store/apps/details?id=com.spinformative.hisabmitra" target="_blank" rel="noopener"><svg><use href="#i-play"/></svg><span data-i="cta1">Hisab Mitra ॲप मिळवा</span></a>
+        <a class="btn line" href="#channels" data-i="cta2">चॅनेल पहा</a>
+      </div>
+    </div>
+    <div class="stage" aria-hidden="true">
+      <div class="rim"></div>
+      <div class="arch">
+        <img class="m1" src="assets/savi_hands.webp" width="462" height="1500" alt="">
+        <img class="m2" src="assets/sanvi_hands.webp" width="454" height="1500" alt="">
+      </div>
+                </div>
+  </div>
+</section>
+
+<div class="ticker" aria-hidden="true"><div id="tick"></div></div>
+
+<section class="app" id="app">
+  <div class="in-w">
+    <div class="rv">
+      <span class="kicker" data-i="k_app">आमचं ॲप</span>
+      <h2>Hisab Mitra</h2>
+      <p class="tag" data-i="app_tag">तुमचा हिशोब, तुमच्या पद्धतीने</p>
+      <p class="intro" data-i="app_intro">दुकानदार आणि रोजच्या वापरासाठी साधी ऑफलाइन उधार वही. प्रत्येक ग्राहकाचे दिलेले आणि मिळालेले पैसे नोंदवा, प्रत्येक नोंदीनंतर बाकी पाहा आणि नम्रपणे आठवण करून द्या.</p>
+      <ul class="feats">
+        <li><svg><use href="#i-ok"/></svg><span data-i="ft1">दिले (लाल) आणि मिळाले (हिरवे), रोख किंवा ऑनलाइन</span></li>
+        <li><svg><use href="#i-ok"/></svg><span data-i="ft2">प्रत्येक नोंदीनंतर चालू बाकी</span></li>
+        <li><svg><use href="#i-ok"/></svg><span data-i="ft3">WhatsApp, SMS किंवा कॉलने आठवण</span></li>
+        <li><svg><use href="#i-ok"/></svg><span data-i="ft4">स्टेटमेंट PDF किंवा Excel मध्ये</span></li>
+        <li><svg><use href="#i-ok"/></svg><span data-i="ft5">बॅकअप आणि रिस्टोअर</span></li>
+        <li><svg><use href="#i-ok"/></svg><span data-i="ft6">PIN आणि फिंगरप्रिंट लॉक</span></li>
+        <li><svg><use href="#i-ok"/></svg><span data-i="ft7">वैयक्तिक आणि व्यवसाय खाते</span></li>
+        <li><svg><use href="#i-ok"/></svg><span data-i="ft8">English, हिंदी, मराठी आणि कन्नड</span></li>
+      </ul>
+      <a class="btn gold" href="https://play.google.com/store/apps/details?id=com.spinformative.hisabmitra" target="_blank" rel="noopener"><svg><use href="#i-play"/></svg><span data-i="gp">Google Play वर मिळवा</span></a>
+    </div>
+    <div class="phone-w rv" style="--d:.15s">
+      <img class="hold l" src="assets/sanvi_phone.webp" width="512" height="1500" alt="" loading="lazy">
+      <img class="hold r" src="assets/savi_phone.webp" width="535" height="1500" alt="" loading="lazy">
+      <div class="phone"><div class="scr shots" id="shots">
+        <img class="on" src="assets/app1.webp" width="648" height="1440" alt="Hisab Mitra: customer list">
+        <img src="assets/app2.webp" width="648" height="1440" alt="Hisab Mitra: customer ledger">
+        <img src="assets/app3.webp" width="648" height="1440" alt="Hisab Mitra: account settings">
+        <img src="assets/app4.webp" width="648" height="1440" alt="Hisab Mitra: PIN lock">
+      </div></div>
+      <div class="dots" id="dots"></div>
+      <p class="cap" data-i="cap">ॲपच्या खऱ्या स्क्रीन, नावं आणि रक्कम नमुना</p>
+    </div>
+    <div class="more rv">
+      <div class="priv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5.500c0 4.500-3 8-7 9.500-4-1.500-7-5-7-9.500V6l7-3z"/><path d="M8.800 12.200l2.300 2.300 4.200-4.600"/></svg><span data-i="priv">तुमचा डेटा फक्त तुमच्या फोनमध्ये राहतो. जाहिराती नाहीत, analytics नाही, server नाही.</span></div>
+      <div class="why"><div class="pt" aria-hidden="true"><img src="assets/sanvi_point.webp" width="721" height="1500" alt="" loading="lazy"></div><div class="wt"><h3 data-i="why_h">Hisab Mitra का बनवलं</h3><p data-i="why_p">आम्हाला स्वतःचा हिशोब ठेवायला एक ॲप हवं होतं. जी ॲप्स वापरून पाहिली त्यांत कुठे शुल्क होतं, कुठे मांडणी समजायला अवघड होती, कुठे प्रत्येक नोंदीला जाहिरात बघावी लागत होती, आणि ती इंटरनेटशिवाय चालत नव्हती. काही भागांत अजूनही इंटरनेट सहज मिळत नाही. म्हणून आम्ही इंटरनेटशिवाय चालणारं साधं ॲप बनवलं.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec grid-bg" id="channels">
+  <div class="in-w">
+    <div class="rv">
+      <span class="kicker" data-i="k_ch">चॅनेल</span>
+      <h2 data-i="ch_h">दोन भाषा, दोन चॅनेल</h2>
+      <p class="lead" data-i="ch_lead">तुमच्या भाषेतलं चॅनेल निवडा आणि फॉलो करा.</p>
+    </div>
+    <div class="ch">
+      <article class="cc mr rv">
+        <div class="txt">
+          <img class="lg" src="assets/brush_mr.webp" width="900" height="238" alt="SP Informative" loading="lazy">
+          <h3 data-i="mr_name">मराठी</h3>
+          <p data-i="mr_desc">रोजच्या उपयोगाची माहिती, ताज्या बातम्या, सरकारी योजना, पैसे, तंत्रज्ञान आणि सण. सवीसोबत, रोजच्या बोलीत.</p>
+          <div class="soc">
+            <a href="https://www.youtube.com/@SPInformativeMarathi" target="_blank" rel="noopener" aria-label="YouTube (मराठी)"><svg><use href="#i-yt"/></svg></a>
+            <a href="https://www.instagram.com/sp.informative.marathi" target="_blank" rel="noopener" aria-label="Instagram (मराठी)"><svg><use href="#i-ig"/></svg></a>
+            <a href="https://www.facebook.com/SPInformativeMarathi" target="_blank" rel="noopener" aria-label="Facebook (मराठी)"><svg><use href="#i-fb"/></svg></a>
+          </div>
+        </div>
+        <div class="fig" aria-hidden="true"><img class="who" src="assets/savi_thumb.webp" width="538" height="1500" alt="" loading="lazy"></div>
+      </article>
+      <article class="cc rv" style="--d:.12s">
+        <div class="txt">
+          <img class="lg" src="assets/brush_hi.webp" width="599" height="155" alt="SP Informative" loading="lazy">
+          <h3 data-i="hi_name">हिंदी</h3>
+          <p data-i="hi_desc">बातम्या, टेक आणि रोजच्या कामाची माहिती: पैसे, बँकिंग, UPI, सरकारी नियम. SP सोबत, सोप्या हिंदीत. महिलांच्या आरोग्यासाठी सान्वी.</p>
+          <div class="soc">
+            <a href="https://www.youtube.com/@SPInformativeindia" target="_blank" rel="noopener" aria-label="YouTube (हिंदी)"><svg><use href="#i-yt"/></svg></a>
+            <a href="https://www.instagram.com/sp.informative" target="_blank" rel="noopener" aria-label="Instagram (हिंदी)"><svg><use href="#i-ig"/></svg></a>
+            <a href="https://www.facebook.com/spinformativeindia" target="_blank" rel="noopener" aria-label="Facebook (हिंदी)"><svg><use href="#i-fb"/></svg></a>
+            <a href="https://x.com/SPInformative" target="_blank" rel="noopener" aria-label="X (हिंदी)"><svg><use href="#i-x"/></svg></a>
+          </div>
+        </div>
+        <div class="fig" aria-hidden="true"><img class="who" src="assets/sanvi_thumb.webp" width="528" height="1500" alt="" loading="lazy"></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="team" style="padding-top:0">
+  <div class="in-w">
+    <div class="rv">
+      <span class="kicker" data-i="k_tm">ओळख</span>
+      <h2 data-i="tm_h">आमचे चेहरे</h2>
+    </div>
+    <div class="faces">
+      <article class="fc a rv">
+        <div class="ar"><img src="assets/sanvi_namaste.webp" width="454" height="1500" alt="Sanvi" loading="lazy"></div>
+        <div class="hd"><b data-i="n1">सान्वी</b><span data-i="r1">महिलांचं आरोग्य · हिंदी चॅनेल</span><q data-i="q1">सेहत की हर बात, अपनी सहेली सान्वी के साथ</q></div>
+        <p class="bio" data-i="b1">सान्वी हिंदी चॅनेलवर महिलांच्या आरोग्याबद्दल सोप्या भाषेत सांगते: मासिक पाळी, PCOD, गर्भधारणा, हाडं, मानसिक आरोग्य आणि प्रत्येक वयातले प्रश्न, तसंच सणांची माहिती. ती डॉक्टर नाही. प्रत्येक पोस्टमध्ये ती डॉक्टरांचा सल्ला घ्यायला सांगते.</p>
+      </article>
+      <article class="fc b rv" style="--d:.1s">
+        <div class="ar"><img src="assets/savi_namaste.webp" width="470" height="1500" alt="Savi" loading="lazy"></div>
+        <div class="hd"><b data-i="n2">सवी</b><span data-i="r2">SP Informative मराठी चॅनेलची मैत्रीण</span><q data-i="q2">अवघड माहिती, सोप्या मराठीत</q></div>
+        <p class="bio" data-i="b2">UPI, गॅस सबसिडी, पीक विमा अशी अवघड माहिती सवी अगदी सोप्या मराठीत सांगते. आधी उत्तर, मग कारण, आणि एक सोपं उदाहरण.</p>
+        <ul class="tags"><li data-i="t1">चंद्रकोरीची नथ</li><li data-i="t2">टिकली</li><li data-i="t3">लांब वेणी</li></ul>
+      </article>
+      <article class="fc c rv" style="--d:.2s">
+        <div class="ar"><img src="assets/sp_namaste.webp" width="546" height="1500" alt="SP" loading="lazy"></div>
+        <div class="hd"><b>SP</b><span data-i="r3">SP Informative चे संस्थापक</span><q data-i="q3">News · Tech · Info, सोप्या भाषेत</q></div>
+        <p class="bio" data-i="b3">SP यांनी SP Informative सुरू केलं. बातम्या, सरकारी नियम, पैसे आणि तंत्रज्ञानाची उपयोगी माहिती तपासून, सोप्या भाषेत आणि थोडक्यात देणं हा त्यांचा उद्देश आहे. हिंदी आणि मराठी दोन्ही चॅनेल त्यांच्या देखरेखीखाली चालतात. याच विचारातून त्यांनी Hisab Mitra हे उधार-खात्याचं ॲपही बनवलं: दुकानदार आणि घरगुती वापरासाठी हिशोब सोपा ठेवणारं, English, हिंदी, मराठी आणि कन्नडमध्ये.</p>
+      </article>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="in-w">
+    <div class="f-grid">
+      <div class="f-brand">
+        <a class="brand" href="#top"><img src="assets/logo_hi.webp" width="42" height="42" alt=""><b>SP INFORMATIVE<i>STAY INFORMED · STAY AHEAD</i></b></a>
+        <p class="f-app" data-i="f_app">Hisab Mitra · उधार वही ॲप</p>
+        <a class="btn gold" href="https://play.google.com/store/apps/details?id=com.spinformative.hisabmitra" target="_blank" rel="noopener"><svg><use href="#i-play"/></svg><span data-i="gp">Google Play वर मिळवा</span></a>
+        <p class="f-mail"><span data-i="ct">संपर्क:</span> <a class="ul" href="mailto:spinformative.official@gmail.com">spinformative.official@gmail.com</a></p>
+      </div>
+      <div><h4 data-i="f_mr">मराठी चॅनेल</h4><div class="soc"><a href="https://www.youtube.com/@SPInformativeMarathi" target="_blank" rel="noopener" aria-label="YouTube (मराठी)"><svg><use href="#i-yt"/></svg></a><a href="https://www.instagram.com/sp.informative.marathi" target="_blank" rel="noopener" aria-label="Instagram (मराठी)"><svg><use href="#i-ig"/></svg></a><a href="https://www.facebook.com/SPInformativeMarathi" target="_blank" rel="noopener" aria-label="Facebook (मराठी)"><svg><use href="#i-fb"/></svg></a></div></div>
+      <div><h4 data-i="f_hi">हिंदी चॅनेल</h4><div class="soc"><a href="https://www.youtube.com/@SPInformativeindia" target="_blank" rel="noopener" aria-label="YouTube (हिंदी)"><svg><use href="#i-yt"/></svg></a><a href="https://www.instagram.com/sp.informative" target="_blank" rel="noopener" aria-label="Instagram (हिंदी)"><svg><use href="#i-ig"/></svg></a><a href="https://www.facebook.com/spinformativeindia" target="_blank" rel="noopener" aria-label="Facebook (हिंदी)"><svg><use href="#i-fb"/></svg></a><a href="https://x.com/SPInformative" target="_blank" rel="noopener" aria-label="X (हिंदी)"><svg><use href="#i-x"/></svg></a></div></div>
+      <div><h4 data-i="f_ql">जलद दुवे</h4><ul class="f-links">
+        <li><a class="ul" href="#app" data-i="nv1">ॲप</a></li>
+        <li><a class="ul" href="#channels" data-i="nv2">चॅनेल</a></li>
+        <li><a class="ul" href="#team" data-i="nv3">ओळख</a></li>
+        <li><a class="ul" href="https://sites.google.com/view/hisab-mitra-privacy-policy" target="_blank" rel="noopener" data-i="pp">गोपनीयता धोरण</a></li>
+      </ul></div>
+    </div>
+    <div class="f-bot">
+      <small class="copy">© 2026 SP Informative</small>
+      <small data-i="ai">Mascot आणि लोगो AI च्या मदतीने बनवले आहेत.</small>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement; root.classList.add("js");
+  var T={
+   hi:{h1:"काम की खबरें,<br><mark>आसान भाषा में</mark>",sub:"न्यूज़, टेक और रोज़ के काम की बातें।",cta1:"Hisab Mitra ऐप पाएँ",cta2:"चैनल देखें",f1:"आज की जानकारी",
+       k_app:"हमारा ऐप",app_tag:"उधार का हिसाब, बिना इंटरनेट।",ft1:"डेटा सिर्फ़ आपके फ़ोन में",ft2:"दिया और मिला, दोनों का हिसाब",ft3:"WhatsApp या SMS से याद दिलाएँ",ft4:"हिंदी, मराठी, कन्नड़ और English",gp:"Google Play पर पाएँ",cap:"नमूना स्क्रीन, नमूना नाम",
+       k_ch:"चैनल",ch_h:"दो भाषाएँ, दो चैनल",ch_lead:"अपनी भाषा का चैनल चुनें और फ़ॉलो करें।",mr_name:"मराठी",mr_desc:"Savi के साथ काम की जानकारी, मराठी में।",hi_name:"हिंदी",hi_desc:"Sanvi के साथ काम की जानकारी, हिंदी में।",
+       k_tm:"परिचय",tm_h:"हमारे चेहरे",r1:"हिंदी चैनल का चेहरा",r2:"मराठी चैनल का चेहरा",r3:"SP Informative के संस्थापक",ai:"Mascot और लोगो AI की मदद से बनाए गए हैं।",ct:"संपर्क:"},
+   en:{h1:"Stay informed.<br><mark>Stay ahead.</mark>",sub:"News, tech and everyday know-how, in simple language.",cta1:"Get the Hisab Mitra app",cta2:"See the channels",f1:"Today's update",
+       k_app:"Our app",app_tag:"Your udhar khata, fully offline.",ft1:"Data stays on your phone",ft2:"Record money given and received",ft3:"Reminders by WhatsApp or SMS",ft4:"English, Hindi, Marathi and Kannada",gp:"Get it on Google Play",cap:"Illustrative screen with sample names",
+       k_ch:"Channels",ch_h:"Two languages, two channels",ch_lead:"Pick the channel in your language and follow.",mr_name:"Marathi",mr_desc:"Useful information with Savi, in Marathi.",hi_name:"Hindi",hi_desc:"Useful information with Sanvi, in Hindi.",
+       k_tm:"Meet us",tm_h:"Our faces",r1:"Face of the Hindi channel",r2:"Face of the Marathi channel",r3:"Founder, SP Informative",ai:"Mascots and logos were created with the help of AI.",ct:"Contact:"}
+  };
+  Object.assign(T.hi,{"app_tag": "आपका हिसाब, आपके हिसाब से", "app_intro": "दुकानदारों और रोज़मर्रा के इस्तेमाल के लिए सीधा-सादा ऑफ़लाइन उधार खाता। हर ग्राहक का दिया और मिला पैसा लिखें, हर एंट्री के बाद बैलेंस देखें और विनम्रता से याद दिलाएँ।", "ft1": "दिया (लाल) और मिला (हरा), नकद या ऑनलाइन", "ft2": "हर एंट्री के बाद चलता बैलेंस", "ft3": "WhatsApp, SMS या कॉल से रिमाइंडर", "ft4": "स्टेटमेंट PDF या Excel में", "ft5": "बैकअप और रिस्टोर", "ft6": "PIN और फ़िंगरप्रिंट लॉक", "ft7": "पर्सनल और बिज़नेस अकाउंट", "ft8": "English, हिंदी, मराठी और कन्नड़", "priv": "आपका डेटा सिर्फ़ आपके फ़ोन में रहता है। न विज्ञापन, न analytics, न कोई server।", "why_h": "Hisab Mitra क्यों बनाया", "why_p": "हमें अपना हिसाब रखने के लिए एक ऐप चाहिए था। जो ऐप आज़माए, उनमें कहीं फ़ीस थी, कहीं इंटरफ़ेस समझना मुश्किल था, कहीं हर एंट्री पर विज्ञापन देखना पड़ता था, और वे बिना इंटरनेट चलते नहीं थे। कई इलाकों में आज भी इंटरनेट आसानी से नहीं मिलता। इसलिए हमने बिना इंटरनेट चलने वाला सीधा-सादा ऐप बनाया।", "mr_desc": "रोज़ के काम की जानकारी, ताज़ा खबरें, सरकारी योजनाएँ, पैसा, टेक और त्योहार। सवी के साथ, बोलचाल की मराठी में।", "hi_desc": "न्यूज़, टेक और रोज़ के काम की जानकारी: पैसा, बैंकिंग, UPI, सरकारी नियम। SP के साथ, वैसी आसान हिंदी में जैसे कोई दोस्त समझाए। महिलाओं की सेहत के लिए सान्वी।", "n1": "सान्वी", "r1": "महिलाओं की सेहत · हिंदी चैनल", "q1": "सेहत की हर बात, अपनी सहेली सान्वी के साथ", "b1": "सान्वी हिंदी चैनल पर महिलाओं की सेहत की बातें आसान भाषा में बताती है: पीरियड्स, PCOD, प्रेग्नेंसी, हड्डियाँ, मानसिक सेहत और हर उम्र के सवाल, साथ ही त्योहारों की जानकारी। वह डॉक्टर नहीं है। हर पोस्ट में कहती है, डॉक्टर से सलाह लें।", "n2": "सवी", "r2": "SP Informative मराठी चैनल की सहेली", "q2": "मुश्किल जानकारी, आसान मराठी में", "b2": "UPI, गैस सब्सिडी, फ़सल बीमा जैसी मुश्किल जानकारी सवी बिल्कुल आसान मराठी में बताती है। पहले जवाब, फिर वजह, और एक आसान उदाहरण।", "t1": "चंद्रकोर वाली नथ", "t2": "बिंदी", "t3": "लंबी चोटी", "r3": "SP Informative के संस्थापक", "q3": "News · Tech · Info, आसान भाषा में", "b3": "SP ने SP Informative की शुरुआत की। मक़सद है खबरें, सरकारी नियम, पैसे और टेक की काम की जानकारी जाँच-परखकर, आसान भाषा में और कम शब्दों में देना। हिंदी और मराठी, दोनों चैनल उन्हीं की देखरेख में चलते हैं। इसी सोच से उन्होंने Hisab Mitra भी बनाया: दुकान और घर का हिसाब आसान रखने वाला उधार-खाता ऐप, English, हिंदी, मराठी और कन्नड़ में।"});
+  Object.assign(T.en,{"app_tag": "Your hisab, your way.", "app_intro": "A simple offline udhar khata for shopkeepers and everyday use. Record money given and received for each customer, see the balance after every entry, and send a polite reminder.", "ft1": "Given (red) and Received (green), cash or online", "ft2": "Running balance after every entry", "ft3": "Reminders by WhatsApp, SMS or call", "ft4": "Statements as PDF or Excel", "ft5": "Backup and restore", "ft6": "PIN and fingerprint lock", "ft7": "Personal and Business accounts", "ft8": "English, Hindi, Marathi and Kannada", "priv": "Your data stays only on your phone. No ads, no analytics, no servers.", "why_h": "Why we built Hisab Mitra", "why_p": "We wanted an app to keep our own accounts. The ones we tried charged fees, were hard to understand, showed an ad for every entry, or needed the internet to work. In some areas the internet is still hard to come by. So we built a simple app that works without it.", "mr_desc": "Useful information, the latest news, government schemes, money, tech and festivals. With Savi, in everyday Marathi.", "hi_desc": "News, tech and everyday know-how: money, banking, UPI, government rules. With SP, in simple Hindi, the way a friend would explain it. Women's health with Sanvi.", "n1": "Sanvi", "r1": "Women's health · Hindi channel", "q1": "Every health question, with your friend Sanvi", "b1": "Sanvi talks about women's health in plain language on the Hindi channel: periods, PCOD, pregnancy, bone health, mental health and questions at every age, plus festivals. She is not a doctor, and every post tells you to consult one.", "n2": "Savi", "r2": "Your friend at SP Informative Marathi", "q2": "Hard topics, in easy Marathi", "b2": "UPI, gas subsidy, crop insurance: Savi explains the complicated stuff in very simple Marathi. Answer first, then the reason, then an easy example.", "t1": "Crescent nath", "t2": "Bindi", "t3": "Long braid", "r3": "Founder, SP Informative", "q3": "News · Tech · Info, in simple language", "b3": "SP started SP Informative to share checked, useful information on news, government rules, money and tech, briefly and in simple language. He oversees both the Hindi and Marathi channels. The same idea led him to build Hisab Mitra, an udhar khata app that keeps accounts simple for shops and households, in English, Hindi, Marathi and Kannada."});
+  Object.assign(T.hi,{"nv1": "ऐप", "nv2": "चैनल", "nv3": "परिचय", "f_mr": "मराठी चैनल", "f_hi": "हिंदी चैनल", "pp": "गोपनीयता नीति", "f_app": "Hisab Mitra · उधार खाता ऐप", "f_ql": "त्वरित लिंक", "cap": "ऐप की असली स्क्रीन, नाम और रकम नमूना"});
+  Object.assign(T.en,{"nv1": "App", "nv2": "Channels", "nv3": "About", "f_mr": "Marathi channel", "f_hi": "Hindi channel", "pp": "Privacy Policy", "f_app": "Hisab Mitra · udhar khata app", "f_ql": "Quick links", "cap": "Real app screens with sample names and amounts"});
+  var X={
+   mr:{tick:["बातम्या","तंत्रज्ञान","उपयुक्त माहिती","सरकारी योजना","पैसे","सण","मराठी","हिंदी","Hisab Mitra"],meta:"SP Informative: उपयुक्त माहिती, सोप्या भाषेत. Hisab Mitra ॲप आणि मराठी व हिंदी चॅनेल."},
+   hi:{tick:["खबरें","टेक","काम की जानकारी","सरकारी योजनाएँ","पैसा","त्योहार","हिंदी","मराठी","Hisab Mitra"],meta:"SP Informative: काम की खबरें, आसान भाषा में। Hisab Mitra ऐप और हिंदी व मराठी चैनल।"},
+   en:{tick:["News","Tech","Useful information","Government schemes","Money","Festivals","Hindi","Marathi","Hisab Mitra"],meta:"SP Informative: news, tech and useful information in simple language. The Hisab Mitra app and our Hindi and Marathi channels."}
+  };
+  var nodes=document.querySelectorAll("[data-i]"); T.mr={};
+  nodes.forEach(function(n){T.mr[n.dataset.i]=n.innerHTML});
+  function get(k){try{return localStorage.getItem(k)}catch(e){return null}}
+  function put(k,v){try{localStorage.setItem(k,v)}catch(e){}}
+  function setLang(l){
+    if(!T[l])l="mr";
+    nodes.forEach(function(n){var v=T[l][n.dataset.i]; if(v!=null)n.innerHTML=v});
+    root.lang=l;
+    var tk=document.getElementById("tick"), md=document.getElementById("mdesc");
+    if(tk){tk.textContent=""; for(var r=0;r<2;r++)X[l].tick.forEach(function(w){var sp=document.createElement("span"); sp.textContent=w; tk.appendChild(sp)})}
+    if(md)md.setAttribute("content",X[l].meta);
+    document.querySelectorAll(".lang button").forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.set===l))});
+    put("sp_lang",l);
+  }
+  document.querySelectorAll(".lang button").forEach(function(b){b.addEventListener("click",function(){setLang(b.dataset.set)})});
+  var q=null; try{q=new URLSearchParams(location.search).get("lang")}catch(e){}
+  setLang(q||get("sp_lang")||"mr");
+
+  var hdr=document.getElementById("hdr"), bg=document.getElementById("burger");
+  function menu(o){hdr.classList.toggle("open",o); bg.setAttribute("aria-expanded",String(o))}
+  bg.addEventListener("click",function(){menu(!hdr.classList.contains("open"))});
+  document.querySelectorAll("#mnav a").forEach(function(a){a.addEventListener("click",function(){menu(false)})});
+  document.addEventListener("keydown",function(e){if(e.key==="Escape")menu(false)});
+
+  var shots=document.querySelectorAll("#shots img"), dots=document.getElementById("dots"), cur=0, tm=null;
+  function show(n){cur=(n+shots.length)%shots.length; shots.forEach(function(im,k){im.classList.toggle("on",k===cur)}); dots.querySelectorAll("button").forEach(function(b,k){b.setAttribute("aria-pressed",String(k===cur))})}
+  shots.forEach(function(_,k){var b=document.createElement("button"); b.type="button"; b.setAttribute("aria-label","Screen "+(k+1)); b.addEventListener("click",function(){show(k); if(tm){clearInterval(tm); tm=null}}); dots.appendChild(b)});
+  show(0);
+  if(!window.matchMedia("(prefers-reduced-motion:reduce)").matches) tm=setInterval(function(){show(cur+1)},3800);
+
+  var secs=["app","channels","team"].map(function(id){return document.getElementById(id)});
+  function spy(){var y=window.scrollY+140, cur=null; secs.forEach(function(sc){if(sc&&sc.offsetTop<=y)cur=sc.id});
+    document.querySelectorAll(".nav a,.mnav a").forEach(function(a){a.classList.toggle("cur",a.getAttribute("href")==="#"+cur)})}
+  window.addEventListener("scroll",spy,{passive:true}); spy();
+
+  var rv=document.querySelectorAll(".rv");
+  if("IntersectionObserver" in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("on");io.unobserve(e.target)}})},{rootMargin:"0px 0px -8% 0px"});
+    rv.forEach(function(n){io.observe(n)});
+  }else{rv.forEach(function(n){n.classList.add("on")})}
+})();
+</script>
+</body>
+</html>
